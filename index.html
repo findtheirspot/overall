@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PVE - Full PVE Protection</title>
+    <title>Capitalism - Onchain Utility</title>
+    <link rel="icon" type="image/x-icon" href="potter.png">
     <style>
         * {
             margin: 0;
@@ -13,13 +14,13 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #fefdfb 0%, #faf8f5 100%);
+            background: linear-gradient(135deg, #fdfcfa 0%, #f8f6f3 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #3ac682;
+            color: #1a1a1a;
             padding: 20px;
         }
 
@@ -34,7 +35,7 @@
             font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
-            color: #3ac682;
+            color: #000000;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
         }
 
@@ -57,14 +58,14 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3ac682 0%, #2eb872 100%);
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 0 40px rgba(58, 198, 130, 0.3),
-                inset 0 0 60px rgba(255, 255, 255, 0.2);
-            border: 8px solid #3ac682;
+                0 0 40px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(255, 255, 255, 0.05);
+            border: 8px solid #000000;
             position: relative;
             overflow: hidden;
         }
@@ -76,7 +77,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(58, 198, 130, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
             animation: pulse 3s ease-in-out infinite;
         }
 
@@ -108,7 +109,7 @@
 
         .update-indicator {
             font-size: 0.9rem;
-            color: #3ac682;
+            color: #000000;
             margin-top: 1rem;
             font-weight: 500;
         }
@@ -117,8 +118,8 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #3ac682;
-            border: 2px solid #3ac682;
+            background: #000000;
+            border: 2px solid #000000;
             border-radius: 12px;
             padding: 12px 24px;
             color: #ffffff;
@@ -129,16 +130,16 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(58, 198, 130, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             z-index: 1000;
         }
 
         .x-button:hover {
-            background: #2eb872;
-            border-color: #2eb872;
+            background: #2a2a2a;
+            border-color: #2a2a2a;
             color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(58, 198, 130, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
         .x-button svg {
@@ -152,14 +153,14 @@
             border-radius: 20px;
             padding: 2.5rem;
             margin-top: 2rem;
-            border: 2px solid #3ac682;
-            box-shadow: 0 8px 32px rgba(58, 198, 130, 0.15);
+            border: 2px solid #000000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .info-section h2 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #3ac682;
+            color: #000000;
             font-weight: 700;
         }
 
@@ -236,14 +237,14 @@
             border-radius: 20px;
             padding: 2.5rem;
             margin-top: 2rem;
-            border: 2px solid #3ac682;
-            box-shadow: 0 8px 32px rgba(58, 198, 130, 0.15);
+            border: 2px solid #000000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .pve-table-section h2 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #3ac682;
+            color: #000000;
             font-weight: 700;
         }
 
@@ -261,7 +262,7 @@
         }
 
         thead {
-            background: linear-gradient(135deg, #3ac682 0%, #2eb872 100%);
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
             color: #ffffff;
         }
 
@@ -276,13 +277,13 @@
 
         td {
             padding: 1rem;
-            border-bottom: 1px solid #d4f4e6;
-            color: #2a8a5e;
+            border-bottom: 1px solid #e8e8e8;
+            color: #1a1a1a;
             font-size: 0.95rem;
         }
 
         tbody tr:hover {
-            background: #e8f9f1;
+            background: #f5f5f5;
         }
 
         tbody tr:last-child td {
@@ -298,13 +299,13 @@
         }
 
         .status-completed {
-            background: #3ac682;
+            background: #000000;
             color: #ffffff;
         }
 
         .status-pending {
-            background: #d4f4e6;
-            color: #3ac682;
+            background: #e8e8e8;
+            color: #000000;
         }
 
         @media (max-width: 768px) {
@@ -352,14 +353,14 @@
     </style>
 </head>
 <body>
-    <a href="https://x.com/wemadepve" target="_blank" rel="noopener noreferrer" class="x-button">
+    <a href="https://x.com/wemadepvecoin" target="_blank" rel="noopener noreferrer" class="x-button">
         <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
         </svg>
         Follow Us
     </a>
     <div class="container">
-        <h1>PVE</h1>
+        <h1>Capitalism</h1>
         
         <div class="circle-container">
             <div class="circle">
@@ -372,39 +373,39 @@
         </div>
 
         <div class="info-section">
-            <h2>How Our PVE Protection Works</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #2a8a5e;">
-                When you lose, we buy supply using creator rewards and send it directly to your wallet.
+            <h2>How It Works</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #1a1a1a;">
+                We airdrop fees relative to how much supply you hold. The top holder receives the most fees, just like in the real world if they had a better job than you.
             </p>
 
             <h2>Developer Fee Distribution</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #2a8a5e;">
-                The amount displayed above represents our current developer fee pool, which funds both our PVE program and strategic buyback initiatives. This value updates every 5 seconds in real-time.
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #1a1a1a;">
+                The amount displayed above represents our current developer fee pool, which funds both our capitalism program and strategic buyback initiatives. This value updates every 5 seconds in real-time.
             </p>
             
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #2a8a5e;">
-                <strong style="color: #3ac682;">90%</strong> of collected fees are dedicated to our PVE pool, ensuring instant protection and supply buyback for any holders experiencing losses.
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #1a1a1a;">
+                <strong style="color: #000000;">90%</strong> of collected fees are airdropped to top holders, who decide the fate of redistribution.
             </p>
             
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #2a8a5e;">
-                <strong style="color: #3ac682;">10%</strong> supports ongoing platform maintenance, PVE system improvements, and operational infrastructure.
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #1a1a1a;">
+                <strong style="color: #000000;">10%</strong> supports ongoing platform maintenance, capitalism system improvements, and operational infrastructure.
             </p>
         </div>
 
         <div class="pve-table-section">
-            <h2>Recent PVE Payouts & Supply Buys</h2>
-            <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; color: #2a8a5e;">
-                Track all buys made using our PVE pool supply in real-time. Every transaction is transparent and instant.
+            <h2>Recent Airdrops to Top Holders</h2>
+            <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; color: #1a1a1a;">
+                Track all airdrops made to top holders in real-time. Every transaction is transparent and instant.
             </p>
             
             <div class="table-container">
-                <table id="pveTable">
+                <table id="capitalismTable">
                     <thead>
                         <tr>
                             <th>Date & Time</th>
-                            <th>Wallet Address</th>
-                            <th>Loss Amount</th>
-                            <th>Supply Sent</th>
+                            <th>Top Holder Address</th>
+                            <th>Airdrop Amount</th>
+                            <th>Tokens Received</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -417,8 +418,8 @@
     </div>
 
     <script>
-        const STORAGE_KEY = 'pve_project_fee_amount';
-        const TABLE_STORAGE_KEY = 'pve_project_pve_table';
+        const STORAGE_KEY = 'capitalism_project_fee_amount';
+        const TABLE_STORAGE_KEY = 'capitalism_project_table';
         let currentFee = 0.00;
         const feeElement = document.getElementById('feeAmount');
         const updateIndicator = document.getElementById('updateIndicator');
@@ -436,7 +437,7 @@
             '2wXm...6tLq'
         ];
 
-        let pveData = [];
+        let capitalismData = [];
 
         // Load saved data
         function loadSavedData() {
@@ -448,9 +449,9 @@
 
             const savedTable = localStorage.getItem(TABLE_STORAGE_KEY);
             if (savedTable !== null) {
-                pveData = JSON.parse(savedTable);
+                capitalismData = JSON.parse(savedTable);
             }
-            // If no saved table, pveData stays empty []
+            // If no saved table, capitalismData stays empty []
         }
 
         // Save data
@@ -459,7 +460,7 @@
         }
 
         function saveTableData() {
-            localStorage.setItem(TABLE_STORAGE_KEY, JSON.stringify(pveData));
+            localStorage.setItem(TABLE_STORAGE_KEY, JSON.stringify(capitalismData));
         }
 
         function formatCurrency(amount) {
@@ -467,7 +468,7 @@
         }
 
         function formatTokenAmount(amount) {
-            return `${amount.toFixed(2)} INS`;
+            return `${amount.toFixed(2)} CAP`;
         }
 
         function formatDateTime(date) {
@@ -488,7 +489,7 @@
             return sampleWallets[Math.floor(Math.random() * sampleWallets.length)];
         }
 
-        function addNewPVEEntry() {
+        function addNewAirdrop() {
             const newEntry = {
                 date: new Date(),
                 wallet: generateRandomWallet(),
@@ -497,11 +498,11 @@
                 status: 'completed'
             };
 
-            pveData.unshift(newEntry);
+            capitalismData.unshift(newEntry);
             
             // Keep only last 15 entries
-            if (pveData.length > 15) {
-                pveData.pop();
+            if (capitalismData.length > 15) {
+                capitalismData.pop();
             }
 
             saveTableData();
@@ -511,7 +512,7 @@
         function renderTable() {
             tableBody.innerHTML = '';
             
-            pveData.forEach(entry => {
+            capitalismData.forEach(entry => {
                 const row = document.createElement('tr');
                 const statusClass = entry.status === 'completed' ? 'status-completed' : 'status-pending';
                 const statusText = entry.status === 'completed' ? 'Completed' : 'Pending';
@@ -559,14 +560,14 @@
             setInterval(updateFee, 5000);
         }, 5000);
 
-        // Add first PVE entry after 10 seconds
+        // Add first airdrop after 10 seconds
         setTimeout(() => {
-            addNewPVEEntry();
+            addNewAirdrop();
         }, 10000);
 
         // Continue adding entries every 25-35 seconds indefinitely
         setInterval(() => {
-            addNewPVEEntry();
+            addNewAirdrop();
         }, 30000); // Every 30 seconds (can vary with the random times in the function)
     </script>
 </body>
