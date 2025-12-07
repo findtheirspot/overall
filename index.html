@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Human Coin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="bless.png">
+    <title>Meme Agency | Onboarding Original Meme Creators to Solana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="meme.jpg">
     <style>
+        :root {
+            --mint: #4ADE80;
+            --mint-dark: #22C55E;
+            --black: #000000;
+            --dark: #111111;
+            --gray-dark: #333333;
+            --gray: #666666;
+            --gray-light: #999999;
+            --gray-lighter: #E5E5E5;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,298 +29,719 @@
         }
 
         body {
-            font-family: 'Instrument Sans', -apple-system, sans-serif;
-            background: #fff;
-            color: #111;
+            font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        header {
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            padding: 1.5rem 3rem;
+            z-index: 100;
+            padding: 1.5rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #fff;
-            z-index: 100;
-            border-bottom: 1px solid #eee;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-lighter);
         }
 
         .logo {
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--black);
         }
 
-        nav a {
-            color: #666;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7EEAB5 0%, var(--mint-dark) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
             text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: color 0.2s;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
-        nav a:hover {
-            color: #111;
+        .nav-links a:hover {
+            color: var(--black);
         }
 
-        .x-btn {
-            background: #111;
-            color: #fff !important;
-            padding: 0.4rem 0.7rem;
-            border-radius: 4px;
-            font-weight: 600;
+        .x-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .x-btn:hover {
-            background: #333;
-            color: #fff !important;
+        .x-button:hover {
+            background: var(--gray-dark);
+            transform: translateY(-2px);
         }
 
-        section {
-            padding: 8rem 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Main content */
+        main {
+            position: relative;
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: 6rem;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: #555;
-            max-width: 500px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .section-text {
-            color: #555;
-            max-width: 550px;
-            margin-bottom: 3rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .stat {
-            padding: 2rem 0;
-            border-top: 1px solid #eee;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        .countries-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 2rem;
-        }
-
-        .country {
-            padding: 0.6rem 1rem;
-            background: #f5f5f5;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-
-        .gallery-section {
-            background: #fafafa;
-            padding: 6rem 0;
-            margin: 0;
-            max-width: 100%;
-        }
-
-        .gallery-section .inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1;
-            background: #e5e5e5;
-            border-radius: 8px;
-            overflow: hidden;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
             position: relative;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero h1 {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 800;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            color: var(--black);
+            letter-spacing: -0.03em;
         }
 
-        .gallery-item span {
-            position: absolute;
-            bottom: 0.75rem;
-            left: 0.75rem;
-            font-size: 0.8rem;
-            color: #666;
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 400;
         }
 
-        footer {
-            padding: 4rem 3rem;
-            border-top: 1px solid #eee;
+        .hero-subtitle span {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        /* Stats bar */
+        .stats-bar {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--gray-lighter);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section styling */
+        section {
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        footer p {
-            color: #999;
-            font-size: 0.85rem;
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
         }
 
-        @media (max-width: 900px) {
-            .stats {
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--black);
+        }
+
+        .section-desc {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* Mission Section */
+        .mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-content {
+            padding-right: 2rem;
+        }
+
+        .mission-visual {
+            position: relative;
+        }
+
+        .mission-card {
+            background: var(--off-white);
+            border: 1px solid var(--gray-lighter);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .mission-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .mission-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: var(--white);
+            border-left: 3px solid var(--black);
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            color: var(--gray-dark);
+            font-size: 0.95rem;
+        }
+
+        /* Creators Section */
+        .creators-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: var(--off-white);
+            max-width: 100%;
+        }
+
+        .creators-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .creator-card {
+            background: var(--white);
+            border: 1px solid var(--gray-lighter);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .creator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--gray-light);
+        }
+
+        .creator-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--off-white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .creator-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .creator-card .creator-origin {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--gray-light);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .creator-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--off-white);
+            border: 1px solid var(--gray-lighter);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .problem-card h4 {
+            color: var(--black);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .problem-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .solution-card {
+            background: var(--black);
+            border: 1px solid var(--black);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .solution-card h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .solution-card p {
+            color: var(--gray-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* How it works */
+        .how-section {
+            padding: 8rem 2rem;
+            background: var(--off-white);
+            max-width: 100%;
+        }
+
+        .how-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            flex: 1;
+            background: var(--white);
+            border: 1px solid var(--gray-lighter);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-lighter);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .step h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--black);
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--gray-lighter);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--black);
+        }
+
+        .footer-copy {
+            color: var(--gray-light);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mission {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .mission-content {
+                padding-right: 0;
+            }
+
+            .problem-grid {
                 grid-template-columns: 1fr;
             }
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .stats-bar {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
 
         @media (max-width: 600px) {
-            header {
-                padding: 1rem 1.5rem;
-            }
-            nav {
-                display: none;
-            }
-            section {
-                padding: 5rem 1.5rem;
-            }
-            .gallery-section .inner {
-                padding: 0 1.5rem;
-            }
-            footer {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
+            .hero h1 {
+                font-size: 3rem;
             }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#creators">Creators</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#problem">The Problem</a></li>
+        </ul>
+        <a href="https://x.com/MemeAgencys" target="_blank" class="x-button" aria-label="Follow us on X">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+        </a>
+    </nav>
 
-    <header>
-        <div class="logo">The Human Coin</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#countries">Countries</a>
-            <a href="#gallery">Gallery</a>
-            <a href="https://x.com/HumanCoinXyz" class="x-btn" target="_blank">𝕏</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>One Coin, built by everyone, for everyone.</h1>
-        <p>We've paid people in 10 countries so far to help shill our coin. We use fees to pay more.</p>
-    </section>
-
-    <section id="about">
-        <h2>How it works</h2>
-        <p class="section-text">Every transaction fee goes directly toward paying more people and reaching new countries. No middlemen. No complexity. Just a simple model that puts money in people's hands.</p>
-        
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Countries reached</div>
+    <main>
+        <section class="hero">
+            <h1>Meme Agency</h1>
+            <p class="hero-subtitle">We use fees to onboard <span>original meme creators</span> onto Solana — giving the artists behind internet culture their rightful place in crypto.</p>
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-value">100+</div>
+                    <div class="stat-label">Creators Contacted</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Years of Meme History</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$0</div>
+                    <div class="stat-label">Paid to Creators (Until Now)</div>
+                </div>
             </div>
-            <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Fees fund expansion</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">Global</div>
-                <div class="stat-label">Our goal</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="countries">
-        <h2>Active countries</h2>
-        <p class="section-text">Real people in these countries have been paid through The Human Coin. More coming soon.</p>
-        
-        <div class="countries-list">
-            <div class="country">Nigeria</div>
-            <div class="country">Kenya</div>
-            <div class="country">India</div>
-            <div class="country">Philippines</div>
-            <div class="country">Brazil</div>
-            <div class="country">Indonesia</div>
-            <div class="country">Vietnam</div>
-            <div class="country">Ghana</div>
-            <div class="country">Mexico</div>
-            <div class="country">Bangladesh</div>
-        </div>
-    </section>
-
-    <div class="gallery-section" id="gallery">
-        <div class="inner">
-            <h2>Community</h2>
-            <p class="section-text">Faces from around the world.</p>
-            
-            <div class="gallery">
-                <div class="gallery-item"><img src="coin1.jpeg" alt="Lagos"><span>Lagos</span></div>
-                <div class="gallery-item"><img src="coin2.jpeg" alt="Nairobi"><span>Nairobi</span></div>
-                <div class="gallery-item"><img src="coin3.jpeg" alt="Mumbai"><span>Mumbai</span></div>
-                <div class="gallery-item"><img src="coin4.jpeg" alt="Manila"><span>Manila</span></div>
-                <div class="gallery-item"><img src="coin5.jpeg" alt="São Paulo"><span>São Paulo</span></div>
+        <section id="mission" class="mission">
+            <div class="mission-content">
+                <span class="section-label">Our Mission</span>
+                <h2 class="section-title">Giving Meme Creators What They Deserve</h2>
+                <p class="section-desc">The people who shaped internet culture have received nothing while others profit from their creativity. We're changing that.</p>
+                <p style="color: var(--gray); line-height: 1.8;">
+                    We've contacted over <strong style="color: var(--black);">100 original meme creators</strong> — the real artists behind the most viral images in internet history. From the anonymous genius who drew Wojak on a Polish imageboard to photographers whose stock images became global phenomena, these creators deserve recognition and compensation.
+                </p>
             </div>
-        </div>
-    </div>
+            <div class="mission-visual">
+                <div class="mission-card">
+                    <h3>How We Use Fees</h3>
+                    <p>A portion of every transaction on our platform goes directly into a creator fund. This fund is used to:</p>
+                    <div class="highlight-box">
+                        <p>✓ Compensate original meme creators for their cultural contributions</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p>✓ Onboard them to Solana with dedicated support & wallets</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p>✓ Help them launch legitimate, creator-owned projects</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="creators" class="creators-section">
+            <div class="creators-inner">
+                <span class="section-label">The Legends</span>
+                <h2 class="section-title">Creators We're Working With</h2>
+                <p class="section-desc" style="margin: 0 auto 3rem;">These are some of the original artists and photographers behind the memes that defined internet culture.</p>
+                
+                <div class="creators-grid">
+                    <div class="creator-card">
+                        <div class="creator-icon">🐸</div>
+                        <h4>Pepe the Frog</h4>
+                        <div class="creator-origin">Created by Matt Furie, 2005</div>
+                        <p>Originally from the comic "Boy's Club," Pepe became one of the most recognizable meme characters globally. Matt Furie has fought to reclaim his creation from misuse — now it's time he benefits from crypto.</p>
+                    </div>
+
+                    <div class="creator-card">
+                        <div class="creator-icon">😐</div>
+                        <h4>Wojak / Feels Guy</h4>
+                        <div class="creator-origin">Polish Imageboard, 2009</div>
+                        <p>The bald, melancholic face that launched a thousand variations — from Doomer to Soyjak to NPC. Created anonymously on a Polish imageboard, Wojak became the emotional backbone of meme culture.</p>
+                    </div>
+
+                    <div class="creator-card">
+                        <div class="creator-icon">🐕</div>
+                        <h4>Doge / Kabosu</h4>
+                        <div class="creator-origin">Photo by Atsuko Sato, 2010</div>
+                        <p>Japanese kindergarten teacher Atsuko Sato photographed her rescue Shiba Inu Kabosu, unknowingly creating the face of a $70B+ cryptocurrency. She deserves her fair share.</p>
+                    </div>
+
+                    <div class="creator-card">
+                        <div class="creator-icon">👀</div>
+                        <h4>Distracted Boyfriend</h4>
+                        <div class="creator-origin">Photo by Antonio Guillem, 2015</div>
+                        <p>Spanish stock photographer Antonio Guillem shot a playful series about infidelity that became the ultimate "object labeling" meme template. His images have been used billions of times.</p>
+                    </div>
+
+                    <div class="creator-card">
+                        <div class="creator-icon">😭</div>
+                        <h4>Crying Cat</h4>
+                        <div class="creator-origin">Photoshopped Original, 2014</div>
+                        <p>The teary-eyed feline that perfectly captures sadness in meme form. We're tracking down the original editor who added those iconic tears.</p>
+                    </div>
+
+                    <div class="creator-card">
+                        <div class="creator-icon">💪</div>
+                        <h4>GigaChad</h4>
+                        <div class="creator-origin">Created by Krista Sudmalis</div>
+                        <p>The hyper-masculine digital art series featuring "Ernest Khalimov" was created by Russian photographer and digital artist Krista Sudmalis as an art project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem" class="problem-section">
+            <span class="section-label">The Problem</span>
+            <h2 class="section-title">Opportunists Are Farming Creators</h2>
+            <p class="section-desc">Right now, bad actors are approaching these creators to exploit their legacy.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>⚠️ What's Happening</h4>
+                    <p>Scammers and opportunists are contacting original meme creators, promising them crypto riches if they "partner" on meme coin launches. These bad actors use the creator's name recognition to pump tokens, then dump on retail investors — leaving both fans and creators with nothing but damaged reputations.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>⚠️ The Creator Gets Burned</h4>
+                    <p>In 2023-2024, we saw multiple cases of creators being approached for "official" coins. Matt Furie wasn't even aware of the PEPE token. Atsuko Sato (Doge's owner) found out about Dogecoin years after it launched. These creators deserve better than being used as marketing props.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>✓ Our Approach</h4>
+                    <p>We reach out to creators directly, transparently, and with their interests first. No pump-and-dump schemes. No using their likeness without consent. We educate them about crypto, help them set up secure wallets, and ensure they have ownership over any project bearing their name.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>✓ Sustainable Model</h4>
+                    <p>Our fee structure creates ongoing revenue for creators, not just a one-time payout. As trading volume grows, so does the creator fund. This aligns our incentives: we succeed when creators succeed, and creators succeed when the community thrives.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how" class="how-section">
+            <div class="how-content">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-title">From Trading Fees to Creator Funds</h2>
+                <p class="section-desc">A simple, transparent model that puts creators first.</p>
+
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">01</span>
+                        <h4>Identify & Contact</h4>
+                        <p>We research the true origins of memes and reach out to original creators with respect and transparency.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">02</span>
+                        <h4>Educate & Onboard</h4>
+                        <p>We help creators understand crypto, set up secure Solana wallets, and navigate the space safely.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">03</span>
+                        <h4>Collect & Distribute</h4>
+                        <p>Trading fees flow into the creator fund and are distributed to verified original creators.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">04</span>
+                        <h4>Build & Grow</h4>
+                        <p>Creators can launch their own legitimate projects with our support and their community's backing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="logo">The Human Coin</div>
-        <p>© 2025</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">Documentation</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-copy">
+                © 2025 Meme Agency. Built on Solana.
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.creator-card, .step, .mission-card, .problem-card, .solution-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add stagger delay to creator cards
+        document.querySelectorAll('.creator-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.step').forEach((step, index) => {
+            step.style.transitionDelay = `${index * 0.15}s`;
+        });
+    </script>
 </body>
 </html>
