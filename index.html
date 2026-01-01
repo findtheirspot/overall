@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testnet - Pump.fun Testing Environment</title>
-    <link rel="icon" type="image/x-icon" href="testnet.png">
+    <title>Daycare</title>
+    <link rel="icon" type="image/x-icon" href="remind.png">
     <style>
         * {
             margin: 0;
@@ -13,525 +13,484 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #fefdfb;
-            color: #2d2d2d;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fefefe;
+            color: #1a1a1a;
             line-height: 1.6;
-            display: flex;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .sidebar {
-            width: 200px;
-            background: #2d8659;
-            color: white;
-            padding: 0;
+        /* Navigation */
+        .nav {
             position: fixed;
-            height: 100vh;
-            left: 0;
             top: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
         }
 
-        .logo {
-            padding: 25px 20px;
-            font-size: 22px;
-            font-weight: 700;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .logo span {
-            color: #fefdfb;
-        }
-
-        .nav-menu {
-            list-style: none;
-        }
-
-        .nav-item {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav-link {
-            display: block;
-            padding: 18px 20px;
-            color: white;
+        .nav-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
             text-decoration: none;
-            transition: background 0.3s;
+            color: #000;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
             cursor: pointer;
         }
 
-        .nav-link:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .nav-link.active {
-            background: rgba(255, 255, 255, 0.2);
-            border-left: 3px solid #fefdfb;
-        }
-
-        .main-content {
-            margin-left: 200px;
-            flex: 1;
-            padding: 40px;
-        }
-
-        .social-buttons {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .social-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .social-btn:hover {
+        .nav-btn:hover {
+            background: #000;
+            color: #fff;
             transform: translateY(-2px);
-            opacity: 0.9;
         }
 
         .x-btn {
-            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            padding: 0;
+        }
+
+        /* First page - Hero section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            color: #000;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.8s forwards;
+        }
+
+        .scroll-prompt {
+            font-size: 1rem;
+            color: #999;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1.5s forwards;
+            position: absolute;
+            bottom: 50px;
+        }
+
+        .scroll-arrow {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* Content sections */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section.fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #000;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 0 auto 30px;
+            text-align: center;
+            font-weight: 300;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            font-weight: 300;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
             color: #000;
         }
 
-        .github-btn {
-            background: white;
-            color: #24292e;
+        .modal h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #000;
         }
 
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #2d2d2d;
-        }
-
-        h2 {
-            font-size: 28px;
-            margin: 30px 0 15px 0;
-            color: #2d2d2d;
-        }
-
-        h3 {
-            font-size: 20px;
-            margin: 25px 0 10px 0;
-            color: #2d8659;
-        }
-
-        p {
+        .modal h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 30px;
             margin-bottom: 15px;
+            color: #000;
+        }
+
+        .modal p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            font-size: 1rem;
+            color: #999;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight-box {
+            background: #f8f8f8;
+            padding: 50px;
+            border-radius: 12px;
+            margin: 50px 0;
+            border-left: 4px solid #000;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .step {
+            padding: 40px 30px;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            text-align: center;
+            background: #fdfdfd;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #000;
+            color: #fff;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .step p {
+            font-size: 1rem;
             color: #555;
-            line-height: 1.7;
-        }
-
-        .rpc-section {
-            background: white;
-            border: 1px solid #e8e5df;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-
-        .rpc-endpoint {
-            background: #2d2d2d;
-            color: #2d8659;
-            padding: 15px;
-            border-radius: 6px;
-            font-family: 'Courier New', monospace;
-            margin: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .copy-btn {
-            background: #2d8659;
-            color: white;
-            border: none;
-            padding: 6px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background 0.3s;
-        }
-
-        .copy-btn:hover {
-            background: #257047;
-        }
-
-        .info-box {
-            background: #f0f9f4;
-            border-left: 4px solid #2d8659;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .code-block {
-            background: #2d2d2d;
-            color: #2d8659;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-            font-size: 14px;
             line-height: 1.6;
         }
 
-        .code-comment {
-            color: #888;
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .code-string {
-            color: #87ceeb;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .code-keyword {
-            color: #ff79c6;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .feature-card {
-            background: white;
-            border: 1px solid #e8e5df;
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .feature-card h4 {
-            color: #2d8659;
-            margin-bottom: 10px;
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .x-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .section p {
+                font-size: 1.1rem;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlight-box {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="social-buttons">
-        <a href="https://x.com/testnetsdotfun" target="_blank" class="social-btn x-btn" title="Follow us on X">𝕏</a>
-        <a href="https://github.com/pump-fun/pump-public-docs" target="_blank" class="social-btn github-btn" title="View on GitHub">
-            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
-        </a>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="https://www.gsa.gov/system/files/FBI%20HQ%20Site%20Selection%20Decision%20Fact%20Sheet%20%282%29.pdf" class="nav-btn" target="_blank">View Lease</a>
+        <a href="#" class="nav-btn" onclick="openModal('whitepaper'); return false;">Whitepaper</a>
+        <a href="https://x.com/DayCareDotFun" class="nav-btn x-btn" target="_blank">𝕏</a>
+    </nav>
+
+    <!-- Whitepaper Modal -->
+    <div id="whitepaper-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('whitepaper')">&times;</span>
+            <h2>Daycare Whitepaper</h2>
+            
+            <h3>Executive Summary</h3>
+            <p>Daycare creates a decentralized network of childcare facilities through strategic acquisition of undervalued properties. By leveraging creator fees to fund facility leases at unprecedented rates, we build a self-sustaining ecosystem of community-owned childcare infrastructure.</p>
+            
+            <h3>The Opportunity</h3>
+            <p>The US Government has begun divesting daycare properties in Minnesota, offering lease agreements at extraordinarily low rates. Buildings that traditionally command $3,000-5,000 monthly are now available for just $500 per month through government surplus property programs.</p>
+            
+            <h3>Our Solution</h3>
+            <p>Daycare systematically leases these facilities using revenue generated from creator fees on our platform. Each successful lease expands our network, creating more capacity for community-driven childcare services while generating sustainable income streams.</p>
+            
+            <h3>Revenue Model</h3>
+            <p>Platform creator fees fund facility acquisitions. Leased buildings generate revenue through childcare services, which in turn funds additional property leases. This creates a self-reinforcing cycle of expansion and community benefit.</p>
+            
+            <h3>Market Strategy</h3>
+            <p>We focus on Minnesota properties being divested through US Government surplus programs. Our legal team ensures all lease agreements meet federal and state compliance standards, with particular attention to GSA property disposition requirements.</p>
+            
+            <h3>The Flywheel Effect</h3>
+            <p>Each leased facility generates operational revenue that funds more leases. More facilities increase our market coverage and community impact. Greater coverage generates more platform activity and creator fees. This self-reinforcing cycle creates systematic expansion of affordable childcare infrastructure.</p>
+            
+            <h3>Legal Framework</h3>
+            <p>All leases comply with GSA standards and federal property regulations. Our acquisition strategy focuses on legally documented lease agreements with clear terms, liability coverage, and community benefit provisions.</p>
+        </div>
     </div>
 
-    <aside class="sidebar">
-        <div class="logo">test<span>net</span></div>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a class="nav-link active" onclick="showPage('home')">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" onclick="showPage('sandbox')">Sandbox</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" onclick="showPage('docs')">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" onclick="showPage('examples')">Examples</a>
-            </li>
-        </ul>
-    </aside>
+    <!-- First Page - Hero Section -->
+    <section class="hero">
+        <h1 class="logo">Daycare</h1>
+        <p class="hero-subtitle">We Use Creator Fees To Legally Lease Daycare Buildings Being Sold Off By The US Government In Minnesota</p>
+        <div class="scroll-prompt">
+            Scroll down to learn more
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
 
+    <!-- Main Content -->
     <main class="main-content">
-        <!-- Home Page -->
-        <div id="home" class="page active">
-            <h1>Pump.fun Testnet Environment</h1>
-            <p>We've built a complete testnet infrastructure for Pump.fun that enables developers to test their products, integrations, and ideas before deploying to mainnet. This is the same critical infrastructure that every major blockchain provides—now available for the Pump.fun ecosystem.</p>
-
-            <div class="info-box">
-                <strong>Why a Testnet?</strong><br>
-                Testing in production is risky and expensive. Our testnet provides a safe, isolated environment where developers can experiment, iterate, and validate their work without any real-world consequences.
-            </div>
-
-            <h2>Network Information</h2>
+        <div class="container">
             
-            <div class="rpc-section">
-                <h3>Solana RPC Endpoint</h3>
-                <p>Connect to our testnet using the following RPC endpoint:</p>
-                <div class="rpc-endpoint">
-                    <span>https://testnet-rpc.pump.fun</span>
-                    <button class="copy-btn" onclick="copyToClipboard('https://testnet-rpc.pump.fun')">Copy</button>
+            <section class="section" data-section="1">
+                <h2>Our Approach</h2>
+                <p>The US Government is selling off daycare properties in Minnesota at unprecedented prices. We leverage creator fees from our platform to systematically lease these facilities for just $500 per month, building a decentralized network of community-owned childcare infrastructure.</p>
+            </section>
+
+            <section class="section" data-section="2">
+                <div class="highlight-box">
+                    <h2>Unprecedented Access</h2>
+                    <p>Buildings traditionally leased for $3,000-5,000 monthly are now available for $500. Through strategic partnerships and community relationships, we secure these properties and transform them into accessible childcare facilities.</p>
                 </div>
+            </section>
 
-                <h3>WebSocket Endpoint</h3>
-                <div class="rpc-endpoint">
-                    <span>wss://testnet-ws.pump.fun</span>
-                    <button class="copy-btn" onclick="copyToClipboard('wss://testnet-ws.pump.fun')">Copy</button>
-                </div>
+            <section class="section" data-section="3">
+                <h2>How We Build the Network</h2>
+                <p>We identify daycare properties being divested by the US Government in Minnesota through federal surplus property programs. Our team negotiates lease agreements at the new $500/month rate, ensuring legal compliance and community benefit.</p>
+                <p>Every creator fee generated on our platform funds additional facility leases. Each new location expands our network, creating more accessible childcare options while generating sustainable revenue that funds even more acquisitions.</p>
+            </section>
 
-                <h3>Testnet Faucet</h3>
-                <p>Get free testnet SOL to start building:</p>
-                <div class="rpc-endpoint">
-                    <span>https://faucet.pump.fun</span>
-                    <button class="copy-btn" onclick="copyToClipboard('https://faucet.pump.fun')">Copy</button>
-                </div>
-            </div>
+            <section class="section" data-section="4">
+                <h2>Self-Sustaining Expansion</h2>
+                <p>Creator fees fund facility leases. Leased facilities provide childcare services and generate operational revenue. This revenue funds more leases, creating a self-reinforcing cycle of community infrastructure expansion.</p>
+                <p>Our systematic approach—using platform fees to lease undervalued properties—creates continuous growth of the childcare network. Every active facility becomes a revenue stream, funding the acquisition of even more daycare locations.</p>
+            </section>
 
-            <h2>Quick Start</h2>
-            <p>Connect to the testnet in your application:</p>
-
-            <div class="code-block">
-<span class="code-comment">// Using @solana/web3.js</span>
-<span class="code-keyword">import</span> { Connection, clusterApiUrl } <span class="code-keyword">from</span> <span class="code-string">'@solana/web3.js'</span>;
-
-<span class="code-keyword">const</span> connection = <span class="code-keyword">new</span> Connection(
-  <span class="code-string">'https://testnet-rpc.pump.fun'</span>,
-  <span class="code-string">'confirmed'</span>
-);
-
-<span class="code-comment">// Test the connection</span>
-<span class="code-keyword">const</span> version = <span class="code-keyword">await</span> connection.getVersion();
-console.log(<span class="code-string">'Connected to testnet:'</span>, version);
-            </div>
-
-            <h2>Key Features</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>Full Pump.fun API</h4>
-                    <p>Complete mirror of production APIs for token creation, trading, and all platform features.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Free Test Tokens</h4>
-                    <p>Unlimited testnet SOL and tokens for development and testing.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Reset Friendly</h4>
-                    <p>Network resets periodically to maintain clean state—perfect for testing.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Production Parity</h4>
-                    <p>Identical behavior to mainnet so your tests are reliable.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sandbox Page -->
-        <div id="sandbox" class="page">
-            <h1>Sandbox Environment</h1>
-            <p>The sandbox provides interactive examples and templates for building on Pump.fun. Test your ideas and see them work in real-time before deploying to production.</p>
-
-            <h2>Token Launch Example</h2>
-            <p>Here's a complete example of creating and launching a token on the Pump.fun testnet:</p>
-
-            <div class="code-block">
-<span class="code-comment">// Import required libraries</span>
-<span class="code-keyword">import</span> { Connection, Keypair, PublicKey } <span class="code-keyword">from</span> <span class="code-string">'@solana/web3.js'</span>;
-<span class="code-keyword">import</span> { PumpFunSDK } <span class="code-keyword">from</span> <span class="code-string">'@pumpfun/sdk'</span>;
-
-<span class="code-comment">// Connect to testnet</span>
-<span class="code-keyword">const</span> connection = <span class="code-keyword">new</span> Connection(<span class="code-string">'https://testnet-rpc.pump.fun'</span>);
-<span class="code-keyword">const</span> wallet = Keypair.generate(); <span class="code-comment">// Create test wallet</span>
-
-<span class="code-comment">// Initialize SDK</span>
-<span class="code-keyword">const</span> sdk = <span class="code-keyword">new</span> PumpFunSDK({
-  connection,
-  wallet,
-  environment: <span class="code-string">'testnet'</span>
-});
-
-<span class="code-comment">// Create a new token</span>
-<span class="code-keyword">const</span> tokenConfig = {
-  name: <span class="code-string">'My Test Token'</span>,
-  symbol: <span class="code-string">'TEST'</span>,
-  description: <span class="code-string">'Testing token creation on Pump.fun testnet'</span>,
-  initialSupply: 1000000,
-  metadata: {
-    image: <span class="code-string">'https://your-image-url.com/token.png'</span>,
-    twitter: <span class="code-string">'@yourproject'</span>,
-    website: <span class="code-string">'https://yourproject.com'</span>
-  }
-};
-
-<span class="code-keyword">try</span> {
-  <span class="code-comment">// Launch the token</span>
-  <span class="code-keyword">const</span> result = <span class="code-keyword">await</span> sdk.createToken(tokenConfig);
-  
-  console.log(<span class="code-string">'Token created successfully!'</span>);
-  console.log(<span class="code-string">'Token Address:'</span>, result.tokenAddress);
-  console.log(<span class="code-string">'Transaction:'</span>, result.signature);
-  
-  <span class="code-comment">// Add liquidity</span>
-  <span class="code-keyword">const</span> liquidityResult = <span class="code-keyword">await</span> sdk.addLiquidity({
-    tokenAddress: result.tokenAddress,
-    solAmount: 10, <span class="code-comment">// 10 SOL</span>
-    tokenAmount: 100000 <span class="code-comment">// 100k tokens</span>
-  });
-  
-  console.log(<span class="code-string">'Liquidity added:'</span>, liquidityResult.signature);
-  
-} <span class="code-keyword">catch</span> (error) {
-  console.error(<span class="code-string">'Error:'</span>, error);
-}
-            </div>
-
-            <h2>Trading Bot Example</h2>
-            <p>Build and test trading strategies safely on testnet:</p>
-
-            <div class="code-block">
-<span class="code-comment">// Trading bot example</span>
-<span class="code-keyword">const</span> bot = {
-  <span class="code-comment">// Monitor token price</span>
-  watchToken: <span class="code-keyword">async</span> (tokenAddress) => {
-    <span class="code-keyword">const</span> price = <span class="code-keyword">await</span> sdk.getTokenPrice(tokenAddress);
-    console.log(<span class="code-string">`Current price: ${price.solPerToken} SOL`</span>);
-    <span class="code-keyword">return</span> price;
-  },
-  
-  <span class="code-comment">// Execute buy order</span>
-  buy: <span class="code-keyword">async</span> (tokenAddress, solAmount) => {
-    <span class="code-keyword">const</span> tx = <span class="code-keyword">await</span> sdk.swap({
-      from: <span class="code-string">'SOL'</span>,
-      to: tokenAddress,
-      amount: solAmount,
-      slippage: 0.05 <span class="code-comment">// 5% slippage tolerance</span>
-    });
-    console.log(<span class="code-string">'Buy executed:'</span>, tx);
-    <span class="code-keyword">return</span> tx;
-  },
-  
-  <span class="code-comment">// Execute sell order</span>
-  sell: <span class="code-keyword">async</span> (tokenAddress, tokenAmount) => {
-    <span class="code-keyword">const</span> tx = <span class="code-keyword">await</span> sdk.swap({
-      from: tokenAddress,
-      to: <span class="code-string">'SOL'</span>,
-      amount: tokenAmount,
-      slippage: 0.05
-    });
-    console.log(<span class="code-string">'Sell executed:'</span>, tx);
-    <span class="code-keyword">return</span> tx;
-  }
-};
-
-<span class="code-comment">// Run the bot</span>
-<span class="code-keyword">const</span> TOKEN_ADDRESS = <span class="code-string">'YOUR_TOKEN_ADDRESS'</span>;
-setInterval(<span class="code-keyword">async</span> () => {
-  <span class="code-keyword">const</span> price = <span class="code-keyword">await</span> bot.watchToken(TOKEN_ADDRESS);
-  
-  <span class="code-comment">// Simple strategy: buy if price drops below threshold</span>
-  <span class="code-keyword">if</span> (price.solPerToken < 0.01) {
-    <span class="code-keyword">await</span> bot.buy(TOKEN_ADDRESS, 1); <span class="code-comment">// Buy with 1 SOL</span>
-  }
-}, 5000); <span class="code-comment">// Check every 5 seconds</span>
-            </div>
-
-            <div class="info-box">
-                <strong>Sandbox Benefits:</strong><br>
-                • Test token launches without real money<br>
-                • Validate trading strategies and bots<br>
-                • Debug integrations in a safe environment<br>
-                • Iterate quickly with instant feedback<br>
-                • No risk to production or real assets
-            </div>
-        </div>
-
-        <!-- Documentation Page -->
-        <div id="docs" class="page">
-            <h1>Documentation</h1>
-            <p>Complete documentation for integrating with the Pump.fun testnet.</p>
-
-            <h2>Getting Started</h2>
-            <ol>
-                <li>Request testnet SOL from the faucet</li>
-                <li>Configure your application to use testnet endpoints</li>
-                <li>Start building and testing</li>
-            </ol>
-
-            <h2>API Reference</h2>
-            <p>The testnet API mirrors production with identical endpoints and responses.</p>
-
-            <h3>Authentication</h3>
-            <p>No API key required for testnet. Use your Solana wallet for transaction signing.</p>
-
-            <h3>Rate Limits</h3>
-            <p>Testnet has generous rate limits to support development:</p>
-            <ul>
-                <li>100 requests per second per IP</li>
-                <li>Unlimited WebSocket connections</li>
-                <li>No daily limits</li>
-            </ul>
-        </div>
-
-        <!-- Examples Page -->
-        <div id="examples" class="page">
-            <h1>Example Projects</h1>
-            <p>Real-world examples you can use as starting points for your projects.</p>
-
-            <h2>Token Launch Platform</h2>
-            <p>Build a frontend for launching tokens on Pump.fun</p>
-
-            <h2>Portfolio Tracker</h2>
-            <p>Track token holdings and performance</p>
-
-            <h2>Automated Market Maker</h2>
-            <p>Create liquidity provision strategies</p>
-
-            <h2>Analytics Dashboard</h2>
-            <p>Visualize token metrics and trading activity</p>
         </div>
     </main>
 
     <script>
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Remove active class from all nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Add active class to clicked nav link
-            event.target.classList.add('active');
+        // Modal functions
+        function openModal(modalName) {
+            document.getElementById(modalName + '-modal').classList.add('active');
         }
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Copied to clipboard!');
-            });
+        function closeModal(modalName) {
+            document.getElementById(modalName + '-modal').classList.remove('active');
         }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+
+        // Scroll-triggered animations
+        const sections = document.querySelectorAll('.section');
+        
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionNum = entry.target.dataset.section;
+                    const delay = (sectionNum - 1) * 200;
+                    
+                    setTimeout(() => {
+                        entry.target.classList.add('fade-in');
+                    }, delay);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
