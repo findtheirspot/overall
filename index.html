@@ -3,584 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capsule </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/x-icon" href="capsule.png">
+    <title>spermcell</title>
+    <link rel="icon" type="image/x-icon" href="col.png">
     <style>
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .animate-scroll {
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000000;
+            color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .terminal {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .terminal-header {
+            color: #00ff00;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px dotted #333;
+        }
+
+        .prompt {
+            color: #ffffff;
+        }
+
+        .command {
+            color: #ffffff;
+        }
+
+        .output {
+            color: #ffffff;
+            margin: 10px 0;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 2px solid #ffffff;
+        }
+
+        .title {
+            font-size: 2rem;
+            letter-spacing: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .ascii-art {
+            color: #ffffff;
+            white-space: pre;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+
+        .feature {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .feature-number {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .separator {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .input-line {
+            margin-top: 30px;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #000;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
             display: inline-block;
-            animation: scroll 20s linear infinite;
         }
-        .hidden { display: none; }
+
+        .nav-btn:hover {
+            background: #ffffff;
+            color: #000;
+            text-decoration: none;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-white via-emerald-50/20 to-white min-h-screen">
-    
-    <!-- Home Page -->
-    <div id="homePage">
-        <!-- Top Ticker -->
-        <div class="bg-gradient-to-r from-emerald-400 to-green-400 text-white py-2.5 overflow-hidden shadow-sm">
-            <div class="animate-scroll whitespace-nowrap">
-                <span class="inline-block px-8 font-medium">QUANTUM +120.45%</span>
-                <span class="inline-block px-8 font-medium">NEXUS -15.23%</span>
-                <span class="inline-block px-8 font-medium">STELLAR +89.67%</span>
-                <span class="inline-block px-8 font-medium">APEX -42.18%</span>
-                <span class="inline-block px-8 font-medium">PRISM +234.92%</span>
-                <span class="inline-block px-8 font-medium">QUANTUM +120.45%</span>
-                <span class="inline-block px-8 font-medium">NEXUS -15.23%</span>
-                <span class="inline-block px-8 font-medium">STELLAR +89.67%</span>
+<body>
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showDocs()">DOCS</button>
+        <a href="https://x.com/SpermCellXyz" target="_blank" class="nav-btn">X</a>
+        <a href="https://github.com/CriesofCarrots" target="_blank" class="nav-btn">GITHUB</a>
+    </div>
+
+    <div id="mainContent">
+    <div class="terminal">
+        <div class="terminal-header">
+<span class="prompt">&gt;</span>
+        </div>
+
+        <div class="output">
+initializing spermcell protocol...
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="ascii-art">
+    _____ ____  ___________  __  _____________    __    
+   / ___// __ \/ ____/ __ \/  |/  / ____/ ____/  / /    
+   \__ \/ /_/ / __/ / /_/ / /|_/ / /   / __/    / /     
+  ___/ / ____/ /___/ _, _/ /  / / /___/ /___   / /___   
+ /____/_/   /_____/_/ |_/_/  /_/\____/_____/  /_____/   
+        </div>
+
+        <div class="output">
+&gt; pure_community_token.exe
+&gt; zero_dev_control.sh
+&gt; 100_percent_fee_powered.py
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;concept&gt;</span>
+
+just like a sperm cell carries genetic code to create new life, SPERMCELL
+carries the purest form of decentralized tokenomics. our autonomous system
+uses <span class="highlight">100% of all transaction fees</span> to continuously market and grow the
+token. no dev wallets. no hidden allocations. just pure community-driven
+momentum powered by a simple, transparent script.
+
+the biological efficiency of nature, applied to crypto.
             </div>
         </div>
 
-        <!-- Header -->
-        <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <div class="flex items-center space-x-8">
-                    <div class="flex items-center space-x-2.5">
-                        <span class="text-xl font-bold text-gray-900">Capsule</span>
-                    </div>
-                </div>
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
 
-                <div class="hidden md:flex items-center space-x-4">
-                    <div class="relative">
-                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        <input type="text" placeholder="Search by CA or ticker" class="pl-9 pr-4 py-2 border border-gray-200 rounded-xl w-56 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all text-sm bg-gray-50/50">
-                    </div>
-                    <button onclick="showHowItWorks()" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium">[how it works]</button>
-                    <button onclick="showDocs()" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium flex items-center gap-1.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        Docs
-                    </button>
-                    <button onclick="showFees()" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium flex items-center gap-1.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Check Fees
-                    </button>
-                    <a href="https://x.com/capsuledotfun" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                    <button onclick="showNewCoin()" class="px-6 py-2.5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-xl font-medium hover:shadow-md transition-all">+ new coin</button>
-                    <button class="px-6 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-xl font-medium hover:border-emerald-400 transition-all">log in</button>
-                </div>
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;protocol-specs&gt;</span>
 
-                <button onclick="toggleMenu()" class="md:hidden">
-                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        </header>
+<span class="feature-number">1.</span> ZERO DEV ALLOCATION
+   no developer wallets. no team tokens. no hidden reserves.
+   every single token exists for the community from genesis.
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden border-b border-gray-200 bg-white hidden">
-            <div class="px-4 py-4 space-y-3">
-                <input type="text" placeholder="Search by CA or ticker" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 text-sm">
-                <button onclick="showHowItWorks()" class="w-full px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-left text-sm font-medium">[how it works]</button>
-                <button onclick="showDocs()" class="w-full px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-left text-sm font-medium flex items-center gap-1.5">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    Docs
-                </button>
-                <button onclick="showFees()" class="w-full px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-left text-sm font-medium flex items-center gap-1.5">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Check Fees
-                </button>
-                <a href="https://x.com/capsuledotfun" target="_blank" rel="noopener noreferrer" class="w-full px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-left text-sm font-medium flex items-center gap-1.5">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    X (Twitter)
-                </a>
-                <button onclick="showNewCoin()" class="w-full px-6 py-2.5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-xl font-medium">+ new coin</button>
-                <button class="w-full px-6 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-xl font-medium">log in</button>
+<span class="feature-number">2.</span> 100% FEE REINVESTMENT  
+   every transaction fee is automatically captured and deployed
+   back into marketing, liquidity, and growth. the script runs
+   autonomously -- no human intervention required.
+
+<span class="feature-number">3.</span> AUTOMATED GROWTH SCRIPT
+   a simple, transparent script continuously "blasts" the coin
+   using accumulated fees. perpetual motion machine for token
+   promotion -- always running, always growing.
+
+<span class="feature-number">4.</span> COMMUNITY-POWERED MOMENTUM
+   pure community ownership means every holder has equal standing.
+   more community growth + more transactions = more powerful
+   automated marketing.
+
+<span class="feature-number">5.</span> BIOLOGICAL EFFICIENCY
+   like nature's most efficient delivery system, SPERMCELL is
+   stripped of all unnecessary complexity. one purpose: deliver
+   value to the community through unstoppable, automated growth.
             </div>
         </div>
 
-        <!-- Hero Section -->
-        <main class="max-w-6xl mx-auto px-4 py-16">
-            <div class="text-center space-y-6 mb-16">
-                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Welcome to Capsule</h1>
-                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Create any coin and have all fees redirected to a user or users!</p>
-                <button onclick="showNewCoin()" class="px-8 py-3.5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-xl font-semibold text-base hover:shadow-lg transition-all hover:scale-105 active:scale-95">+ new coin</button>
-            </div>
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
 
-            <!-- Waiting State -->
-            <div class="mt-20 text-center py-20 border border-gray-100 rounded-3xl bg-white shadow-sm">
-                <div class="flex flex-col items-center space-y-5">
-                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center animate-pulse shadow-md">
-                        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center">
-                            <div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-green-500 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900">Waiting for coin deployment</h2>
-                </div>
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;visual-representation&gt;</span>
+
+<div class="ascii-art">
+            ___
+           /   \
+          |  O  |     &lt;-- genetic payload (community value)
+           \___/
+             |
+             |        &lt;-- autonomous delivery mechanism
+             |
+            / \
+           /   \      &lt;-- propulsion (100% fee reinvestment)
+          /     \
+         ~       ~
+</div>
+
+swimming forward. always forward. unstoppable momentum.
             </div>
-        </main>
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;final-output&gt;</span>
+
+no promises. no roadmaps. no dev dumps.
+just pure, autonomous, community-driven growth.
+
+<span class="highlight">SPERMCELL: built to grow. built to last. built different.</span>
+
+the script is running. the fees are accumulating. the growth is automatic.
+
+welcome to the future of community tokens.
+            </div>
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="input-line">
+            <span class="prompt">&gt;</span> <span class="blink">_</span>
+        </div>
+    </div>
     </div>
 
-    <!-- How It Works Page -->
-    <div id="howItWorksPage" class="hidden">
-        <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <div class="flex items-center space-x-8">
-                    <button onclick="showHome()" class="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors group">
-                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        <span class="font-medium">Back</span>
-                    </button>
-                    <button onclick="showHome()" class="flex items-center space-x-2 hover:opacity-80 transition">
-                        <span class="text-xl font-bold text-gray-900">Capsule</span>
-                    </button>
-                </div>
+    <div id="docsContent" style="display: none;">
+    <div class="terminal">
+        <div class="terminal-header">
+<span class="prompt">&gt;</span> <button onclick="showMain()" style="background: none; border: none; color: #ffffff; float: right; cursor: pointer; font-family: 'Courier New', monospace;">[back]</button>
+        </div>
+
+        <div class="output">
+loading documentation...
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="title">
+SPERMCELL DOCS
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;overview&gt;</span>
+
+SPERMCELL is a fully autonomous, community-owned token with zero developer
+control. the protocol uses 100% of transaction fees to automatically market
+and grow the token through a transparent, open-source script.
+
+<span class="highlight">core principle:</span> pure decentralization + automated growth = unstoppable momentum
             </div>
-        </header>
+        </div>
 
-        <main class="max-w-4xl mx-auto px-4 py-12">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">How It Works</h1>
-                <p class="text-lg text-gray-600">Learn how Capsule makes token creation simple and rewarding</p>
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;tokenomics&gt;</span>
+
+<span class="feature-number">supply:</span> [TBD]
+<span class="feature-number">dev allocation:</span> 0%
+<span class="feature-number">team allocation:</span> 0%
+<span class="feature-number">transaction fee:</span> [TBD]%
+<span class="feature-number">fee distribution:</span> 100% to automated marketing script
+
+no presale. no private sale. fair launch for everyone.
             </div>
+        </div>
 
-            <div class="space-y-8">
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="flex items-start gap-6">
-                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Create Your Token</h3>
-                            <p class="text-gray-600">Design your token with a name, ticker, description, and image. Add optional social links to build your community from day one.</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;the-script&gt;</span>
 
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="flex items-start gap-6">
-                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Share Trading Fees</h3>
-                            <p class="text-gray-600">Optionally distribute trading fees to up to 100 accounts. Perfect for rewarding contributors, team members, or community supporters.</p>
-                        </div>
-                    </div>
-                </div>
+the autonomous growth script operates 24/7 with these functions:
 
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="flex items-start gap-6">
-                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">3</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Make an Initial Buy</h3>
-                            <p class="text-gray-600">Optionally purchase tokens at launch with SOL. We recommend a minimum of 0.5 SOL to help protect against snipers and establish initial liquidity.</p>
-                        </div>
-                    </div>
-                </div>
+1. <span class="highlight">fee collection:</span> automatically captures transaction fees
+2. <span class="highlight">accumulation:</span> builds fee reserves until threshold reached
+3. <span class="highlight">deployment:</span> executes marketing campaigns across platforms
+4. <span class="highlight">optimization:</span> tracks performance and adjusts strategies
+5. <span class="highlight">transparency:</span> all actions logged on-chain
 
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="flex items-start gap-6">
-                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">4</div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Launch & Trade</h3>
-                            <p class="text-gray-600">Once deployed, your token is live on the Solana blockchain. Share with your community and watch it grow!</p>
-                        </div>
-                    </div>
-                </div>
+the script is open-source. the script is auditable. the script is unstoppable.
             </div>
+        </div>
 
-            <div class="mt-12 text-center">
-                <button onclick="showNewCoin()" class="px-8 py-3.5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-xl font-semibold text-base hover:shadow-lg transition-all hover:scale-105 active:scale-95">Get Started</button>
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;how-it-works&gt;</span>
+
+step 1: you buy or sell SPERMCELL
+step 2: transaction fee is automatically collected
+step 3: script accumulates fees in marketing wallet
+step 4: once threshold met, script deploys marketing campaigns
+step 5: increased visibility → more holders → more fees → more marketing
+step 6: repeat infinitely
+
+it's a flywheel. it's perpetual motion. it's inevitable growth.
             </div>
-        </main>
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;community-governance&gt;</span>
+
+SPERMCELL has no centralized governance. decisions are made by:
+
+- market forces (the invisible hand)
+- community consensus (social coordination)
+- script performance (algorithmic optimization)
+
+no voting. no proposals. no admin keys. pure emergence.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;roadmap&gt;</span>
+
+phase 1: launch
+phase 2: grow
+phase 3: continue growing
+phase 4: never stop growing
+
+no artificial milestones. no forced narratives. just organic, automated,
+unstoppable expansion driven by the community and the script.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;smart-contract&gt;</span>
+
+contract address: [TBD]
+blockchain: [TBD]
+audit: [TBD]
+
+the contract is simple. the contract is transparent. the contract is immutable.
+once deployed, even the deployer has no special powers.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;risks&gt;</span>
+
+SPERMCELL is experimental. risks include but are not limited to:
+
+- market volatility (standard crypto risk)
+- smart contract bugs (always possible despite audits)
+- script malfunction (autonomous systems can fail)
+- regulatory uncertainty (crypto's wild west)
+- complete loss of investment (never invest more than you can lose)
+
+this is not financial advice. DYOR. be responsible.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;community&gt;</span>
+
+join the community:
+
+X: https://x.com/SpermCellXyz
+GitHub: https://github.com
+Telegram: [TBD]
+Discord: [TBD]
+
+contribute to the script. share memes. spread the word.
+you are the marketing. you are the community. you are SPERMCELL.
+            </div>
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="section">
+            <div class="output">
+<span class="prompt">&lt;faq&gt;</span>
+
+<span class="highlight">Q: who controls SPERMCELL?</span>
+A: no one. the community owns it. the script runs it.
+
+<span class="highlight">Q: how do you make money?</span>
+A: we don't. there's no "we". there's no dev tax. there's no team allocation.
+
+<span class="highlight">Q: what if the script breaks?</span>
+A: the community can fork it, fix it, redeploy it. decentralization means resilience.
+
+<span class="highlight">Q: is this a pump and dump?</span>
+A: no dev tokens to dump. no team to coordinate. just pure market dynamics.
+
+<span class="highlight">Q: why should i trust this?</span>
+A: don't trust. verify. the contract is open. the script is open. everything is verifiable.
+
+<span class="highlight">Q: wen moon?</span>
+A: wen the script accumulates enough fees to launch us there.
+            </div>
+        </div>
+
+        <div class="separator">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="input-line">
+            <span class="prompt">&gt;</span> <span class="blink">_</span>
+        </div>
     </div>
-
-    <!-- New Coin Page -->
-    <div id="newCoinPage" class="hidden">
-        <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <div class="flex items-center space-x-8">
-                    <button onclick="showHome()" class="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors group">
-                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        <span class="font-medium">Back</span>
-                    </button>
-                    <button onclick="showHome()" class="flex items-center space-x-2 hover:opacity-80 transition">
-                        <span class="text-xl font-bold text-gray-900">Capsule</span>
-                    </button>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="showDocs()" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium flex items-center gap-1.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        Docs
-                    </button>
-                    <button onclick="showFees()" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium flex items-center gap-1.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Check Fees
-                    </button>
-                    <a href="https://x.com/capsuledotfun" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition text-sm font-medium">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                    <button onclick="showNewCoin()" class="px-6 py-2.5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-xl font-medium hover:shadow-md transition-all">+ new coin</button>
-                    <button class="px-6 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-xl font-medium hover:border-emerald-400 transition-all">log in</button>
-                </div>
-            </div>
-        </header>
-
-        <main class="max-w-xl mx-auto px-4 py-12">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold text-gray-900 mb-3">Launch on Capsule</h1>
-                <p class="text-base text-gray-600">Create a coin, raise money, and share with friends.</p>
-            </div>
-
-            <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-8">
-                <!-- Token Info Section -->
-                <div>
-                    <h2 class="text-sm font-semibold text-gray-700 mb-5 uppercase tracking-wide">Token Info</h2>
-                    
-                    <div class="flex gap-5 mb-5">
-                        <div class="flex-shrink-0">
-                            <div class="w-28 h-28 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-50/50 transition-all">
-                                <svg class="w-7 h-7 text-gray-400 mb-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                                </svg>
-                                <span class="text-xs text-gray-500 font-medium">Upload</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex-1 space-y-3">
-                            <input type="text" placeholder="Name" class="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all">
-                            <input type="text" placeholder="Ticker" class="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all">
-                        </div>
-                    </div>
-
-                    <textarea placeholder="Description" rows="4" class="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 resize-none transition-all"></textarea>
-                </div>
-
-                <!-- Social Links Section -->
-                <div class="pt-6 border-t border-gray-100">
-                    <button onclick="toggleSocialLinks()" class="flex items-center justify-between w-full text-left group">
-                        <span class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Social Links <span class="text-gray-400 normal-case tracking-normal">(Optional)</span></span>
-                        <svg id="socialChevron" class="w-4 h-4 text-gray-400 transition-transform group-hover:text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    
-                    <div id="socialLinksContent" class="mt-4 space-y-3 hidden">
-                        <input type="text" placeholder="Twitter" class="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all">
-                        <input type="text" placeholder="Telegram" class="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all">
-                        <input type="text" placeholder="Website" class="w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all">
-                    </div>
-                </div>
-
-                <!-- Share Fees Section -->
-                <div class="pt-6 border-t border-gray-100">
-                    <div class="flex items-start justify-between gap-4">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Share Fees <span class="text-gray-400 normal-case tracking-normal">(Optional)</span></h3>
-                            <p class="text-sm text-gray-500 mt-1.5">Share fees with up to 100 accounts.</p>
-                        </div>
-                        <button onclick="toggleShareFees()" id="shareFeesToggle" class="w-11 h-6 rounded-full transition-colors flex-shrink-0 bg-gray-200">
-                            <div id="shareFeesSlider" class="w-5 h-5 bg-white rounded-full shadow-sm transform transition-transform translate-x-0.5"></div>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Initial Buy Section -->
-                <div class="pt-6 border-t border-gray-100">
-                    <h3 class="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">Initial Buy <span class="text-gray-400 normal-case tracking-normal">(Optional)</span></h3>
-                    
-                    <div class="bg-gray-50/50 border border-gray-200 rounded-xl p-4">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-emerald-600 font-mono text-sm">≡ 0.00 SOL</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-4 space-y-2">
-                        <p class="text-xs text-emerald-600">We recommend a minimum 0.5 SOL initial buy to avoid snipers.</p>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-gray-600 flex items-center gap-1.5">
-                                <span class="text-emerald-600">⊙</span> 0 SOL
-                            </span>
-                            <span class="text-gray-900 font-semibold">$0.00</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Launch Button -->
-                <button class="w-full py-3.5 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-xl font-semibold text-base hover:shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]">log in to launch</button>
-            </div>
-        </main>
-    </div>
-
-    <!-- Docs Page -->
-    <div id="docsPage" class="hidden">
-        <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <div class="flex items-center space-x-8">
-                    <button onclick="showHome()" class="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors group">
-                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        <span class="font-medium">Back</span>
-                    </button>
-                    <button onclick="showHome()" class="flex items-center space-x-2 hover:opacity-80 transition">
-                        <span class="text-xl font-bold text-gray-900">Capsule</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <main class="max-w-4xl mx-auto px-4 py-12">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">Documentation</h1>
-                <p class="text-lg text-gray-600">Everything you need to know about creating tokens on Capsule</p>
-            </div>
-
-            <div class="space-y-8">
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What is Capsule?</h2>
-                    <p class="text-gray-600 mb-4">Capsule is a platform that allows you to create and launch tokens on the Solana blockchain with built-in fee sharing capabilities. Whether you're launching a community token, a creator coin, or a project token, Capsule makes it simple and accessible.</p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Token Creation</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Required Information</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Token Name: The full name of your token</li>
-                                <li>Ticker: A short symbol (e.g., BTC, ETH)</li>
-                                <li>Description: What your token represents</li>
-                                <li>Image: A visual representation of your token</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Optional Features</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Social Links: Twitter, Telegram, Website</li>
-                                <li>Fee Sharing: Distribute fees to multiple wallets</li>
-                                <li>Initial Buy: Purchase tokens at launch</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Fee Sharing</h2>
-                    <p class="text-gray-600 mb-4">One of Capsule's unique features is the ability to share trading fees with up to 100 different wallet addresses. This is perfect for:</p>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Rewarding team members and contributors</li>
-                        <li>Distributing revenue to stakeholders</li>
-                        <li>Creating incentive structures for your community</li>
-                        <li>Building sustainable tokenomics</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Initial Buy</h2>
-                    <p class="text-gray-600 mb-4">When launching your token, you have the option to make an initial purchase using SOL. This helps:</p>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Establish initial liquidity for your token</li>
-                        <li>Protect against snipers and bots</li>
-                        <li>Show commitment to your project</li>
-                        <li>Set a floor price for your token</li>
-                    </ul>
-                    <p class="text-gray-600 mt-4">We recommend a minimum of 0.5 SOL for optimal protection.</p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Technical Details</h2>
-                    <div class="space-y-3 text-gray-600">
-                        <p><strong>Blockchain:</strong> Solana</p>
-                        <p><strong>Token Standard:</strong> SPL Token</p>
-                        <p><strong>Fee Distribution:</strong> Automatic via smart contract</p>
-                        <p><strong>Maximum Fee Recipients:</strong> 100 wallets</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Fees Page -->
-    <div id="feesPage" class="hidden">
-        <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <div class="flex items-center space-x-8">
-                    <button onclick="showHome()" class="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors group">
-                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        <span class="font-medium">Back</span>
-                    </button>
-                    <button onclick="showHome()" class="flex items-center space-x-2 hover:opacity-80 transition">
-                        <span class="text-xl font-bold text-gray-900">Capsule</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <main class="max-w-4xl mx-auto px-4 py-12">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">Fee Structure</h1>
-                <p class="text-lg text-gray-600">Transparent pricing for token creation and trading</p>
-            </div>
-
-            <div class="space-y-6">
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Token Creation Fees</h2>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-100">
-                            <span class="text-gray-700 font-medium">Token Deployment</span>
-                            <span class="text-xl font-bold text-emerald-600">0.02 SOL</span>
-                        </div>
-                        <p class="text-sm text-gray-500">One-time fee paid when you deploy your token to the Solana blockchain</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Trading Fees</h2>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-100">
-                            <span class="text-gray-700 font-medium">Buy Fee</span>
-                            <span class="text-xl font-bold text-emerald-600">1%</span>
-                        </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-100">
-                            <span class="text-gray-700 font-medium">Sell Fee</span>
-                            <span class="text-xl font-bold text-emerald-600">1%</span>
-                        </div>
-                        <p class="text-sm text-gray-500">These fees are automatically distributed to the addresses you specify when creating your token</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Fee Distribution</h2>
-                    <div class="space-y-4 text-gray-600">
-                        <p>When you enable fee sharing, trading fees are automatically distributed according to your specified allocation:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Real-time distribution on every trade</li>
-                            <li>No manual claims required</li>
-                            <li>Transparent on-chain tracking</li>
-                            <li>Split among up to 100 recipients</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-100">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Calculation</h2>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Trade Amount:</span>
-                            <span class="font-semibold">10 SOL</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Trading Fee (1%):</span>
-                            <span class="font-semibold">0.1 SOL</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-3 border-t border-emerald-200">
-                            <span class="text-gray-700">Fee Recipients Receive:</span>
-                            <span class="font-bold text-emerald-600">0.1 SOL (split)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
     </div>
 
     <script>
-        function showHome() {
-            document.getElementById('homePage').classList.remove('hidden');
-            document.getElementById('newCoinPage').classList.add('hidden');
-            document.getElementById('docsPage').classList.add('hidden');
-            document.getElementById('feesPage').classList.add('hidden');
-            document.getElementById('howItWorksPage').classList.add('hidden');
-        }
-
-        function showNewCoin() {
-            document.getElementById('homePage').classList.add('hidden');
-            document.getElementById('newCoinPage').classList.remove('hidden');
-            document.getElementById('docsPage').classList.add('hidden');
-            document.getElementById('feesPage').classList.add('hidden');
-            document.getElementById('howItWorksPage').classList.add('hidden');
-        }
-
         function showDocs() {
-            document.getElementById('homePage').classList.add('hidden');
-            document.getElementById('newCoinPage').classList.add('hidden');
-            document.getElementById('docsPage').classList.remove('hidden');
-            document.getElementById('feesPage').classList.add('hidden');
-            document.getElementById('howItWorksPage').classList.add('hidden');
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('docsContent').style.display = 'block';
+            window.scrollTo(0, 0);
         }
 
-        function showFees() {
-            document.getElementById('homePage').classList.add('hidden');
-            document.getElementById('newCoinPage').classList.add('hidden');
-            document.getElementById('docsPage').classList.add('hidden');
-            document.getElementById('feesPage').classList.remove('hidden');
-            document.getElementById('howItWorksPage').classList.add('hidden');
+        function showMain() {
+            document.getElementById('docsContent').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            window.scrollTo(0, 0);
         }
 
-        function showHowItWorks() {
-            document.getElementById('homePage').classList.add('hidden');
-            document.getElementById('newCoinPage').classList.add('hidden');
-            document.getElementById('docsPage').classList.add('hidden');
-            document.getElementById('feesPage').classList.add('hidden');
-            document.getElementById('howItWorksPage').classList.remove('hidden');
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const menuIcon = document.getElementById('menuIcon');
-            const closeIcon = document.getElementById('closeIcon');
-            
-            menu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
-
-        function toggleSocialLinks() {
-            const content = document.getElementById('socialLinksContent');
-            const chevron = document.getElementById('socialChevron');
-            content.classList.toggle('hidden');
-            chevron.classList.toggle('rotate-180');
-        }
-
-        function toggleShareFees() {
-            const toggle = document.getElementById('shareFeesToggle');
-            const slider = document.getElementById('shareFeesSlider');
-            
-            if (toggle.classList.contains('bg-gray-200')) {
-                toggle.classList.remove('bg-gray-200');
-                toggle.classList.add('bg-gradient-to-r', 'from-emerald-400', 'to-green-500');
-                slider.classList.remove('translate-x-0.5');
-                slider.classList.add('translate-x-5');
-            } else {
-                toggle.classList.add('bg-gray-200');
-                toggle.classList.remove('bg-gradient-to-r', 'from-emerald-400', 'to-green-500');
-                slider.classList.add('translate-x-0.5');
-                slider.classList.remove('translate-x-5');
-            }
-        }
+        // Simulate typing effect on load
+        const terminal = document.querySelector('.terminal');
+        terminal.style.opacity = '0';
+        setTimeout(() => {
+            terminal.style.transition = 'opacity 0.5s';
+            terminal.style.opacity = '1';
+        }, 100);
     </script>
 </body>
 </html>
